@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% if tasks %}
+            <div class="container">
+                <p><h2>Mes taches:</h2></p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Tache</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for x in tasks %}
+                            <tr>
+                                <th>{{x.taskname}}</th>
+                                <th>{{x.created_at}}</th>
+                                <th>
+                                    <a href="/update/{{x.id1}}/"><button class="btn btn-primary">Modifer</button></a>
+                                    <a href="/delete/{{x.id1}}/"><button class="btn btn-danger">Supprimer</button></a>
+                                </th>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
+        <p>Pour ajouter une tache:</p>
+        <form action="", method = "POST">
+            <p><input type="text" name = "tache"></p>
+            <p><input type="submit" value="Ajouter une tache."></p>
+        </form>
+    </div>
+{% endblock %}

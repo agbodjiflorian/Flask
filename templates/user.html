@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} User Page {% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <p>{{msg}}</p>
+                {% endfor %}
+            {%  endif %}
+        {% endwith %}
+
+        <p><a href="/tache">Cliquez ici pour ajouter une tache.</a></p>
+    </div>
+{% endblock %}

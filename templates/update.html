@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <p>Modifier cette tache:</p>
+        <form action="/update/{{tasks.id1}}/", method = "POST">
+            <p><input type="text" name = "tache" value="{{tasks.taskname}}"></p>
+            <p><input type="submit" value="Modifier"></p>
+        </form>
+
+        <p><a href="/tache">Retour</a></p>
+    </div>
+{% endblock %}
